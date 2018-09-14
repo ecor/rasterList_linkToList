@@ -5,6 +5,6 @@ A Package for a raster of Objects
 #  Installation 
 
 ```
-> devtools::install_github("ecor/rasterList')
+> devtools::install_github("ecor/rasterList")
 ```
 
