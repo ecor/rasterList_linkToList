@@ -214,9 +214,7 @@ setMethod("rasterList","RasterBrick",function (object,object.name=NA,FUN=NULL,ov
 			filename <- filename[1]
 			if (is.na(filename[1])) filename <- "default" 
 			if (filename=="")   filename <- "default"
-	
-			
-			
+			if (filename!="default") filename_object <- filename
 			
 			
 			

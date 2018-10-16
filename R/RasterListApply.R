@@ -118,7 +118,7 @@ RasterListApply <- function(...,FUN=NULL,filename="default",overwrite=TRUE) {
 		
 	}
 	
-	out <- rasterList(l[[iw[1]]],filename=filename,overwrite=overwrite) 
+	out <- rasterList(l[[iw[1]]],filename=filename,overwrite=overwrite) 	
 	filename <- filename(out)
 	
 	l[iw] <- lapply(X=l[iw],FUN=function(x){x@list})
