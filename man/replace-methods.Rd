@@ -51,4 +51,3 @@ if (identical(x,as.list(ll2))==FALSE) stop("x and ll2 should be identical!! Some
 \seealso{
 \code{\link{rasterList}}
 }
-

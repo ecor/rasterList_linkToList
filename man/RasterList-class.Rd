@@ -22,11 +22,10 @@ This class inherits the \code{\link{RasterLayer-class}} class considering each p
 showClass("RasterList")
 
 }
-\author{
-Emanuele Cordano
-}
 \seealso{
 \code{\link{raster}},\code{\link{Raster-class}}
 }
+\author{
+Emanuele Cordano
+}
 \keyword{classes}
-

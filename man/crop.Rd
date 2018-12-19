@@ -2,8 +2,8 @@
 % Please edit documentation in R/crop.R
 \docType{methods}
 \name{crop,RasterList-method}
-\alias{crop}
 \alias{crop,RasterList-method}
+\alias{crop}
 \title{\code{Crop} methods for a \code{\link{RasterList-class}} object.}
 \usage{
 \S4method{crop}{RasterList}(x, y, check.RasterList = TRUE, ...)
@@ -46,4 +46,3 @@ fitdist_masked <- crop ( x = fitdist,y=mask)
 
 
 }
-

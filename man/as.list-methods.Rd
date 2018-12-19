@@ -2,9 +2,9 @@
 % Please edit documentation in R/as.list.R
 \docType{methods}
 \name{as.list}
-\alias{LinkToList2list}
 \alias{as.list}
 \alias{as.list,LinkToList-method}
+\alias{LinkToList2list}
 \title{Coercion of a \link{LinkToList-class} object to a generic \link{list} object.}
 \usage{
 \S4method{as.list}{LinkToList}(x, ...)
@@ -19,4 +19,3 @@ LinkToList2list(x, ...)
 \description{
 Coercion of a \link{LinkToList-class} object to a generic \link{list} object.
 }
-

@@ -17,4 +17,3 @@ showClass("list")
 \code{\link{as.list}},\code{\link{list}}
 }
 \keyword{classes}
-

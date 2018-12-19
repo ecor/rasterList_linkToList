@@ -20,7 +20,7 @@ NULL
 #' 
 #' 
 #' f <- system.file("external/test.grd", package="raster")
-#' 
+#' f <- raster(f)+0
 #' ra <- rasterList(f)
 #' rb <- rasterList(f)
 #' 

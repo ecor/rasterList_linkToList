@@ -39,4 +39,3 @@ The package-provided datasets shall be only used as example datasets.
 
 The development of this package has been sponosored by ACEWATER2 and "Water  for  Growth  and  Poverty Reduction  in  the  Mekrou" projects of the Joint Research Centre of the Europan Commission (\url{http://aquaknow.jrc.ec.europa.eu}).
 }
-

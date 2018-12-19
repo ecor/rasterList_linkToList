@@ -2,8 +2,8 @@
 % Please edit documentation in R/raster.R
 \docType{methods}
 \name{raster,RasterList-method}
-\alias{raster}
 \alias{raster,RasterList-method}
+\alias{raster}
 \title{\code{Raster} methods for a \code{\link{RasterList-class}} object.}
 \usage{
 \S4method{raster}{RasterList}(x, FUN = NULL, ...)
@@ -30,4 +30,3 @@ r2 <- raster(ur,FUN=function(x){x[2]})
 \seealso{
 \code{\link{stack}},\code{\link{RasterListApply}}
 }
-

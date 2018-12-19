@@ -2,12 +2,12 @@
 % Please edit documentation in R/rasterList.R
 \docType{methods}
 \name{rasterList}
-\alias{as.RasterList}
 \alias{rasterList}
-\alias{rasterList,RasterBrick-method}
+\alias{as.RasterList}
 \alias{rasterList,RasterLayer-method}
-\alias{rasterList,RasterList-method}
 \alias{rasterList,RasterStack-method}
+\alias{rasterList,RasterBrick-method}
+\alias{rasterList,RasterList-method}
 \title{Creates a \code{\link{RasterList-class}}  object}
 \usage{
 rasterList(object = NULL, list = NULL, object.name = NA, ...)
@@ -22,13 +22,13 @@ rasterList(object = NULL, list = NULL, object.name = NA, ...)
 \S4method{rasterList}{RasterStack}(object = NULL, list = NULL,
   object.name = NA, ...)
 
-\S4method{rasterList}{RasterBrick}(object, object.name = NA, FUN = NULL,
-  overwrite = TRUE, filename = "", nperfile = "default", nblocks = 20,
-  ...)
+\S4method{rasterList}{RasterBrick}(object, object.name = NA,
+  FUN = NULL, overwrite = TRUE, filename = "",
+  nperfile = "default", nblocks = 20, ...)
 
-\S4method{rasterList}{RasterList}(object, list = NULL, object.name = NA,
-  FUN = NULL, filename = "", overwrite = FALSE, nperfile = "default",
-  nblocks = 20, ...)
+\S4method{rasterList}{RasterList}(object, list = NULL,
+  object.name = NA, FUN = NULL, filename = "", overwrite = FALSE,
+  nperfile = "default", nblocks = 20, ...)
 }
 \arguments{
 \item{object}{the object to coerce}
@@ -95,4 +95,3 @@ fitdist <- rasterList(samlmom,FUN=pelgam)
 
 
 }
-

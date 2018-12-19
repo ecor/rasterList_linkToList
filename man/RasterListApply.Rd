@@ -4,7 +4,8 @@
 \alias{RasterListApply}
 \title{A function for operations among  \code{\link{RasterList-class}} objects.}
 \usage{
-RasterListApply(..., FUN = NULL, filename = "default", overwrite = TRUE)
+RasterListApply(..., FUN = NULL, filename = "default",
+  overwrite = TRUE)
 }
 \arguments{
 \item{...}{a set of arguments containg the \code{\link{RasterList-class}} objects whose lists are operated by \code{FUN}.}
@@ -23,7 +24,7 @@ A function for operations among  \code{\link{RasterList-class}} objects.
 
 
 f <- system.file("external/test.grd", package="raster")
-
+f <- raster(f)+0
 ra <- rasterList(f)
 rb <- rasterList(f)
 
@@ -86,4 +87,3 @@ pval_ks <- raster(kstesting,FUN=function(x){x$p.value})
 \seealso{
 \code{\link{mapply}},\code{\link{rasterList}}
 }
-

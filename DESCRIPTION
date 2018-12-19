@@ -12,8 +12,8 @@ Description: A S4 class has been created such that complex operations can be
     map algebra. Two environmental applications about frequency analysis of raster
     map of precipitation and creation of a raster map of soil water retention curves
     have been presented.
-Version: 0.6.3
-Date: 2018-07-18
+Version: 0.6.4
+Date: 2018-12-19
 Repository: BitBucket
 Depends:
     R(>= 3.0.1),raster,methods,lubridate,stringr
@@ -21,5 +21,5 @@ Suggests:
     lmom,testthat,sp,soilwater,
     knitr,
     rmarkdown
-RoxygenNote: 5.0.1
+RoxygenNote: 6.1.1
 VignetteBuilder: knitr

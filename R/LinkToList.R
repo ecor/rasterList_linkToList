@@ -179,10 +179,12 @@ setMethod("linkToList","LinkToList",function (object,filename="default",FUN=NULL
 					
 					from <- it
 					to <- out_source_file[it]
-					ofr <-file.copy(from=from, to=to)
-					
+					ofr <-try(file.copy(from=from, to=to,overwrite=TRUE),silent=TRUE)
+				
 					if (ofr!=TRUE)  { 
 						out_source_file[it] <- it
+						msg <- sprintf("%s was not copied as %s and %s's content has been replaced!",from,to,from)
+						warning(msg)
 					} 	
 					
 				}

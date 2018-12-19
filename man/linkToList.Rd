@@ -2,8 +2,8 @@
 % Please edit documentation in R/LinkToList.R
 \docType{methods}
 \name{linkToList}
-\alias{as.LinkToList}
 \alias{linkToList}
+\alias{as.LinkToList}
 \alias{linkToList,LinkToList-method}
 \alias{linkToList,list-method}
 \title{Creates a \code{\link{LinkToList-class}}  object}
@@ -16,11 +16,12 @@ as.LinkToList(object, ...)
 linkToList(object = NULL, filename = "default", FUN = NULL,
   nperfile = 100, length = 200, ...)
 
-\S4method{linkToList}{LinkToList}(object, filename = "default", FUN = NULL,
-  nperfile = "not.used", suffix = "default", ...)
+\S4method{linkToList}{LinkToList}(object, filename = "default",
+  FUN = NULL, nperfile = "not.used", suffix = "default", ...)
 
 \S4method{linkToList}{list}(object, filename = "default", FUN = NULL,
-  nperfile = length, length = length(object), single.element = TRUE, ...)
+  nperfile = length, length = length(object), single.element = TRUE,
+  ...)
 }
 \arguments{
 \item{object}{the object to coerce}
@@ -72,4 +73,3 @@ ll3a <- linkToList(ll2,nperfile=100,FUN=mean,filename="/tmp/mapname.asc")
 ll4 <- linkToList(x,nperfile=100,FUN=mean)
 
 }
-

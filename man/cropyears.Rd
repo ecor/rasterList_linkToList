@@ -4,29 +4,30 @@
 \name{cropyears}
 \alias{cropyears}
 \alias{cropyears,Date-method}
-\alias{cropyears,RasterBrick-method}
-\alias{cropyears,RasterList-method}
-\alias{cropyears,RasterStack-method}
-\alias{cropyears,character-method}
 \alias{cropyears,data.frame-method}
-\alias{cropyears,list-method}
+\alias{cropyears,character-method}
 \alias{cropyears,numeric-method}
+\alias{cropyears,RasterStack-method}
+\alias{cropyears,RasterBrick-method}
+\alias{cropyears,list-method}
+\alias{cropyears,RasterList-method}
 \title{Crop a monthly or daily or sub-daily time series to a series starting from the beginning of the year and ending of the end of an year.}
 \usage{
 cropyears(object = NULL, start, end, months_offset = c(0, 6), ...)
 
 cropyears(object = NULL, start, end, months_offset = c(0, 6), ...)
 
-\S4method{cropyears}{Date}(object = NULL, start, end, months_offset = c(0,
-  6), ...)
+\S4method{cropyears}{Date}(object = NULL, start, end,
+  months_offset = c(0, 6), ...)
 
-\S4method{cropyears}{data.frame}(object = NULL, timestamp = "Date", ...)
-
-\S4method{cropyears}{character}(object = NULL, format_date = "X\%Y.\%m.\%d",
+\S4method{cropyears}{data.frame}(object = NULL, timestamp = "Date",
   ...)
 
-\S4method{cropyears}{numeric}(object = NULL, format_date = "X\%Y.\%m.\%d",
-  ...)
+\S4method{cropyears}{character}(object = NULL,
+  format_date = "X\%Y.\%m.\%d", ...)
+
+\S4method{cropyears}{numeric}(object = NULL,
+  format_date = "X\%Y.\%m.\%d", ...)
 
 \S4method{cropyears}{RasterStack}(object = NULL,
   format_date = "X\%Y.\%m.\%d", ...)
@@ -34,8 +35,8 @@ cropyears(object = NULL, start, end, months_offset = c(0, 6), ...)
 \S4method{cropyears}{RasterBrick}(object = NULL,
   format_date = "X\%Y.\%m.\%d", ...)
 
-\S4method{cropyears}{list}(object = NULL, start, end, months_offset = c(0,
-  6), ...)
+\S4method{cropyears}{list}(object = NULL, start, end,
+  months_offset = c(0, 6), ...)
 
 \S4method{cropyears}{RasterList}(object = NULL,
   format_date = "X\%Y.\%m.\%d", ...)
@@ -83,4 +84,3 @@ cropt2m <- cropyears(t2m)
 
 
 }
-

@@ -2,8 +2,8 @@
 % Please edit documentation in R/AAAA_02_classes.R
 \docType{class}
 \name{LinkToList-class}
-\alias{LinkToList}
 \alias{LinkToList-class}
+\alias{LinkToList}
 \title{S4 declaration for \code{LinkToList-class} S4 class object}
 \description{
 S4 declaration for \code{LinkToList-class} S4 class object
@@ -17,4 +17,3 @@ showClass("LinkToList")
 \code{\link{LinkToList}}
 }
 \keyword{classes}
-

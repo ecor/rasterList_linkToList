@@ -130,4 +130,3 @@ plot(raster(soil_water_content2))
 }
 
 }
-

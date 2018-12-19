@@ -2,8 +2,8 @@
 % Please edit documentation in R/stack.R
 \docType{methods}
 \name{stack,RasterList-method}
-\alias{stack}
 \alias{stack,RasterList-method}
+\alias{stack}
 \title{Creates a \code{\link{RasterStack-class}}  object from a \code{\link{RasterList-class}}}
 \usage{
 \S4method{stack}{RasterList}(x, ...)
@@ -39,4 +39,3 @@ sa <- stack(rla)
 \seealso{
 \code{\link{rasterList}}
 }
-

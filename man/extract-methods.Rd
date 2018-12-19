@@ -59,4 +59,3 @@ ll2[[28]]
 \seealso{
 \code{\link{linkToList}}
 }
-

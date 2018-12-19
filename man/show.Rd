@@ -2,8 +2,8 @@
 % Please edit documentation in R/show_LinkToList.R
 \docType{methods}
 \name{show,LinkToList-method}
-\alias{show,LinkToList}
 \alias{show,LinkToList-method}
+\alias{show,LinkToList}
 \title{Print or Show S4 method for a \code{\link{LinkToList-class}} object}
 \usage{
 \S4method{show}{LinkToList}(object)
@@ -14,4 +14,3 @@
 \description{
 Prints a \code{\link{LinkToList-class}} object
 }
-
