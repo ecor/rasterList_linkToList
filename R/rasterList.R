@@ -262,11 +262,11 @@ setMethod("rasterList","RasterBrick",function (object,object.name=NA,FUN=NULL,ov
 				list <- linkToList(object=NULL,filename=filename_object,nperfile=nperfile,length=ncell(object),FUN=funb,b=object,func=FUN,single.element=FALSE,...)
 			}
 			## This call has to be checked and/or removed!
-		#	if (!is.na(object.name)) out@name <- as.character(object.name)
-	    #	if (length(out@name)==0) out@name <- as.character(object.name)
-		#	out@list <- list
+			if (!is.na(object.name)) out@name <- as.character(object.name) ## 20190211
+	    	if (length(out@name)==0) out@name <- as.character(object.name) ## 20190211
+			out@list <- list ## 20190211
 	## TEST THis lines after!!!
-			out <- rasterList(out,list=list,object.name=object.name)
+	##20190211		out <- rasterList(out,list=list,object.name=object.name)
 			
 			
 			

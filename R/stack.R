@@ -111,7 +111,7 @@ setMethod("stack", signature(x='RasterList'),
 				
 				stop(msg)
 			}
-		
+			snn <- nn[[inz[1]]] ## EC20180226
 			
 			
 			
@@ -137,9 +137,9 @@ setMethod("stack", signature(x='RasterList'),
 			}
 			
 			
-			if (!is.null(nn[[1]])) {
+			if (!is.null(snn)) {
 				
-				cond_names <- all(sapply(X=nn,FUN=identical,y=snn))
+				cond_names <- all(sapply(X=nn[inz],FUN=identical,y=snn))
 			
 			} else {
 			

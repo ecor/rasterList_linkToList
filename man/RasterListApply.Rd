@@ -78,7 +78,7 @@ fitdist <- rasterList(samlmom,FUN=pelgam)
 ## KS TESTING
 
 kstesting <- RasterListApply(x=rasterList(prec),y="cdfgam",para=fitdist,FUN=ks.test)
-
+kstesting_ <- RasterListApply(x=prec,y="cdfgam",para=fitdist,FUN=ks.test) ## 
 ## Mapping of p-value 
 pval_ks <- raster(kstesting,FUN=function(x){x$p.value})
  

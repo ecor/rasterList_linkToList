@@ -51,7 +51,7 @@ is.RasterList <- function(x) {
 	if (out==TRUE) {
 		
 		
-		out <- (length(x@list)==ncell(x))
+		out <- (length(x@list)==ncell(raster(x)))
 		
 	}
 	
@@ -62,4 +62,8 @@ is.RasterList <- function(x) {
 	
 	
 }
+
+
+
+
 

@@ -74,7 +74,7 @@ NULL
 #' ## KS TESTING
 #' 
 #' kstesting <- RasterListApply(x=rasterList(prec),y="cdfgam",para=fitdist,FUN=ks.test)
-#' 
+#' kstesting_ <- RasterListApply(x=prec,y="cdfgam",para=fitdist,FUN=ks.test) ## 
 #' ## Mapping of p-value 
 #' pval_ks <- raster(kstesting,FUN=function(x){x$p.value})
 #'  
@@ -96,9 +96,12 @@ RasterListApply <- function(...,FUN=NULL,filename="default",overwrite=TRUE) {
 	
 	
 	iw <- which(sapply(X=l,FUN=is.RasterList))
-	
-	oo <- sapply(X=l[iw],FUN=function(x){length(x@list)})
-
+	iwc <- which(sapply(X=l,FUN=is.RasterListAble))
+	iwc <- iwc[!(iwc %in% iw)]
+	l[iwc] <- lapply(X=l[iwc],FUN=rasterList)
+	iw <- union(iw,iwc)
+##	oo <- sapply(X=l[iw],FUN=function(x){length(x@list)})
+	oo <- sapply(X=l[iw],FUN=ncell)
 
 	cond <- all(oo==oo[1])
 
@@ -118,9 +121,11 @@ RasterListApply <- function(...,FUN=NULL,filename="default",overwrite=TRUE) {
 		
 	}
 	
-	out <- rasterList(l[[iw[1]]],filename=filename,overwrite=overwrite) 	
-	filename <- filename(out)
-	
+	out <- rasterList(l[[iw[1]]],filename="default",overwrite=overwrite) 	
+	##filename <- filename(out)
+	###out <- raster(l[[iw]])
+	out <- writeRaster(out,filename=filename,overwrite=TRUE)
+	out <- as(out,Class="RasterList")
 	l[iw] <- lapply(X=l[iw],FUN=function(x){x@list})
 	l$SIMPLIFY <- FALSE
 	l$filename <- filename
