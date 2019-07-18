@@ -127,7 +127,7 @@ setMethod("linkToList","LinkToList",function (object,filename="default",FUN=NULL
 			if (is.null(filename)) filename <- NA
 			
 			
-			lu2 <- LinkToList2list(lu)
+		
 			
 			if (!is.null(FUN)) {
 				

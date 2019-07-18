@@ -306,7 +306,7 @@ setMethod("rasterList","RasterList",function (object,list=NULL,object.name=NA,FU
 			if (is.na(filename[1])) filename <- "" 
 			
 			if (filename=="temporary") filename <- "default"
-			if (filename=="default") filename <- rasterTmpFile('ll')
+			if (filename=="default") filename <- rasterTmpFile() ##('ll')
 			
 		    if (filename!="")   {
 				

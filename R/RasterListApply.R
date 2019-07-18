@@ -121,11 +121,15 @@ RasterListApply <- function(...,FUN=NULL,filename="default",overwrite=TRUE) {
 		
 	}
 	
-	out <- rasterList(l[[iw[1]]],filename="default",overwrite=overwrite) 	
+	##out <- rasterList(l[[iw[1]]],filename="default",overwrite=overwrite) 	
+	out <- l[[iw[1]]]
 	##filename <- filename(out)
 	###out <- raster(l[[iw]])
+	##if (filename=="default") filename <- rasterTmpFile()
 	out <- writeRaster(out,filename=filename,overwrite=TRUE)
 	out <- as(out,Class="RasterList")
+	
+	## DELETING THE TEMPORARY FOLDER 
 	l[iw] <- lapply(X=l[iw],FUN=function(x){x@list})
 	l$SIMPLIFY <- FALSE
 	l$filename <- filename
