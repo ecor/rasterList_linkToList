@@ -58,7 +58,7 @@ NULL
 
 
 
-setMethod('[',signature=c(x="LinkToList",i="ANY",j="ANY"),function (x,i,j,...,forceInMemory=FALSE,filename=rasterTmpFile('ll'),nperfile=ceiling(length(i)/10),drop=TRUE)  {
+setMethod('[',signature=c(x="LinkToList",i="ANY",j="ANY"),function (x,i,j,...,forceInMemory=FALSE,filename=rasterTmpFile(),nperfile=ceiling(length(i)/10),clean=FALSE,drop=TRUE)  {
 							
 	breaks <- c(x@source$start,x@source$end[nrow(x@source)])
 	nnl <- length(breaks)
@@ -102,11 +102,9 @@ setMethod('[',signature=c(x="LinkToList",i="ANY",j="ANY"),function (x,i,j,...,fo
 	###
 	if (forceInMemory!=TRUE) {
 		
-		out <- linkToList(out,filename=filename,nperfile=nperfile)
+		out <- linkToList(out,filename=filename,nperfile=nperfile,clean=clean,)
 		
-	}
-	
-	###
+	} 
 			
 			
 			

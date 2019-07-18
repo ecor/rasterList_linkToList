@@ -17,7 +17,8 @@ setMethod("as.list",
 		signature(x = "LinkToList"),
 		function(x,...) {
 			
-			LinkToList2list(x=x,...)
+			LinkToList2list(x=x,...,clean=TRUE)
+			
 		}
 )
 
@@ -32,11 +33,15 @@ NULL
 #' 
 
 
-LinkToList2list <- function (x, ...) 
+LinkToList2list <- function (x, ...,clean=FALSE) 
 	{
 	
 		l <- 1:length(x)
 		out <- x[l,...,forceInMemory=TRUE]
+		if (clean==TRUE) {
+			unlink(x@source$file)
+			
+		}
 		return(out)
 		
 	}

@@ -81,9 +81,9 @@ setMethod("stack", signature(x='RasterList'),
 		
 				lu <- linkToList(object=l,FUN=base::length)
 				
-				
-				lu2 <- LinkToList2list(lu)
-				
+			##	lu2 <- LinkToList2list(lu)
+				lu2 <- LinkToList2list(lu,clean=TRUE)
+			
 				
 				nl <- unlist(lu2)
 			
@@ -107,7 +107,8 @@ setMethod("stack", signature(x='RasterList'),
 			if (max(nl[inz],na.rm=FALSE)!=min(nl[inz],na.rm=FALSE)){
 			
 				if (length(out@name)<1) out@name <- "<NO_NAME>"
-				msg <- sprintf("RasterList-class Object %s cannot be coerced into a RasterStack-class object",out@name)
+				r <- range(nl[inz])
+				msg <- sprintf("RasterList-class Object %s cannot be coerced into a RasterStack-class object (%d %d)",out@name,r[1],r[2])
 				
 				stop(msg)
 			}
@@ -168,7 +169,7 @@ setMethod("stack", signature(x='RasterList'),
 							 
 							 starts <- uu@source$start
 							 ends <-  uu@source$end
-
+						     uuxxuu <<- uu
 							 for (ii in 1:length(starts)) {
 								 
 								 cells <- starts[ii]:ends[ii]
@@ -177,15 +178,15 @@ setMethod("stack", signature(x='RasterList'),
 								
 								
 								
-								 rr[cells] <- unlist(uu[cells,forceInMemory=TRUE])
+								 rr[cells] <- unlist(uu[cells,forceInMemory=TRUE,clean=TRUE])
 								 
 								 
 							 }
-							 
+						#####	 unlink(uu@source$file) ## CREATE clean or remove.FILE function!!
 							 return(rr)
 					    },l=l,rr=rr)
 				
-				
+						unlink(l@source$file) ## deleta all Files
 				
 				
 			} else {

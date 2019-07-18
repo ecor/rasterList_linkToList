@@ -49,7 +49,7 @@ mapplyLinkToList <- function (...,filename="default")   {
 	###
 	lout <- sapply(X=args,FUN=length)
 	
-	cond <- lout==1 | lout==max(lout)
+	cond <- lout==1 | lout==max(lout)	
 	
 	cond <- all(cond)==TRUE
 	
