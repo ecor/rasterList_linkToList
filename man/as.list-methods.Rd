@@ -9,7 +9,7 @@
 \usage{
 \S4method{as.list}{LinkToList}(x, ...)
 
-LinkToList2list(x, ...)
+LinkToList2list(x, ..., clean = FALSE)
 }
 \arguments{
 \item{x}{a \link{LinkToList-class} object}

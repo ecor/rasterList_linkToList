@@ -11,8 +11,8 @@
 \title{Extract parts of \code{\link{LinkToList-class}}}
 \usage{
 \S4method{[}{LinkToList,ANY,ANY}(x, i, j, ..., forceInMemory = FALSE,
-  filename = rasterTmpFile("ll"), nperfile = ceiling(length(i)/10),
-  drop = TRUE)
+  filename = rasterTmpFile(), nperfile = ceiling(length(i)/10),
+  clean = FALSE, drop = TRUE)
 
 \S4method{[[}{LinkToList,ANY,missing}(x, i, j, ...)
 
