@@ -127,6 +127,7 @@ setMethod("linkToList","LinkToList",function (object,filename="default",FUN=NULL
 			if (is.null(filename)) filename <- NA
 			
 			
+			lu2 <- LinkToList2list(lu)
 			
 			if (!is.null(FUN)) {
 				
@@ -161,7 +162,7 @@ setMethod("linkToList","LinkToList",function (object,filename="default",FUN=NULL
 			
 			if (!is.na(filename)) {
 				
-				if (filename=="default") filename <- rasterTmpFile('ll')
+				if (filename=="default") filename <- rasterTmpFile() ## ('ll')
 				
 				#filen <- filename
 				#fileList <- str_replace(filen,extension(filen),"_list_%d_%d.rda")
@@ -223,7 +224,7 @@ setMethod("linkToList","list",function (object,filename="default",FUN=NULL,nperf
 			if (is.na(filename[1])) filename <- "default" 
 			
 			
-			if (filename=="default")  filename <- rasterTmpFile('ll')
+			if (filename=="default")  filename <- rasterTmpFile() ##('ll')
 		
 			out <- as(list(),"LinkToList")## EC 20180621
 			
