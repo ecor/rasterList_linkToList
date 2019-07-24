@@ -94,12 +94,17 @@ RasterListApply <- function(...,FUN=NULL,filename="default",overwrite=TRUE) {
 	il <- which(sapply(X=l,FUN=function(x){class(x)=="RasterLayer"}))
 	l[il] <- lapply(X=l[il],FUN=function(x){rasterList(stack(x))})
 	
+
+#	stop("ERRORE DA CONTROLLARE")
 	
 	iw <- which(sapply(X=l,FUN=is.RasterList))
+	
 	iwc <- which(sapply(X=l,FUN=is.RasterListAble))
 	iwc <- iwc[!(iwc %in% iw)]
+	
 	l[iwc] <- lapply(X=l[iwc],FUN=rasterList)
 	iw <- union(iw,iwc)
+	
 ##	oo <- sapply(X=l[iw],FUN=function(x){length(x@list)})
 	oo <- sapply(X=l[iw],FUN=ncell)
 
@@ -121,11 +126,12 @@ RasterListApply <- function(...,FUN=NULL,filename="default",overwrite=TRUE) {
 		
 	}
 	
+	
 	##out <- rasterList(l[[iw[1]]],filename="default",overwrite=overwrite) 	
 	out <- l[[iw[1]]]
 	##filename <- filename(out)
-	###out <- raster(l[[iw]])
-	##if (filename=="default") filename <- rasterTmpFile()
+	out <- raster(out)
+	if (filename=="default") filename <- rasterTmpFile()
 	out <- writeRaster(out,filename=filename,overwrite=TRUE)
 	out <- as(out,Class="RasterList")
 	

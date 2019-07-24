@@ -1,8 +1,9 @@
 NULL
 #' Coercion of a \link{LinkToList-class} object to a generic \link{list} object. 
 #'
-#' @param x a \link{LinkToList-class} object
-#' @param ... forther arguments for \code{\link{[}} method
+#' @param x a \code{\link{LinkToList-class}} object
+#' @param clean logical value. Default is \code{FALSE}. If it is \code{TRUE}, the external files containing \code{x} are removed. See \code{\link{unlink}}.
+#' @param ... forther arguments for \code{\link{[}} method.
 #'  
 #'
 #' @name as.list

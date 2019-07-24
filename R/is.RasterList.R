@@ -41,7 +41,7 @@ is.RasterList <- function(x) {
 	}
 	if (out==TRUE) {
 		
-		out <- (class(raster(x))=="RasterLayer")
+		out <- (class(raster(x,FUN=function(x){1}))=="RasterLayer")
 		
 		
 		
@@ -51,7 +51,7 @@ is.RasterList <- function(x) {
 	if (out==TRUE) {
 		
 		
-		out <- (length(x@list)==ncell(raster(x)))
+		out <- (length(x@list)==ncell(raster(x,FUN=function(x){1})))
 		
 	}
 	

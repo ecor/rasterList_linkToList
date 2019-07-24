@@ -6,12 +6,10 @@
 \alias{raster}
 \title{\code{Raster} methods for a \code{\link{RasterList-class}} object.}
 \usage{
-\S4method{raster}{RasterList}(x, FUN = NULL, ...)
+\S4method{raster}{RasterList}(x, ...)
 }
 \arguments{
 \item{x}{a valid \code{\link{RasterList-class}} object}
-
-\item{FUN}{if it not \code{NULL} a function is applied to all elements of the \code{list} slot in \code{x}.}
 
 \item{...}{further arguments}
 }

@@ -11,7 +11,7 @@
 #' 
 #' 
 #' @param x a \code{rasterList-class} object 
-#' @param ... further arguments for \code{\link{rasterList}}
+#' @param filename,... further arguments for \code{\link{rasterList}}
 #' 
 #' @rdname stack
 #' @method stack RasterList
@@ -46,9 +46,13 @@
 
 
 setMethod("stack", signature(x='RasterList'), 
-		function(x, ...) {
+		function(x, filename="default",...) {
 			
-			out <- rasterList(object=x,...)
+			if (length(filename)!=0) filename <- "default"
+			if (filename[1]=="") filename <- "default"
+			filename <- filename[1]
+			
+			out <- rasterList(object=x,filename=filename,...) ## check HERE !!!!
 			
 			if (length(out@list)==0) {
 				
@@ -73,20 +77,23 @@ setMethod("stack", signature(x='RasterList'),
 			
 				## DO SOMETHING
 				nn <- linkToList(object=out@list,FUN=names,filename="default")
-				
+			
 				snn <- nn[[1]]
+				
 				l <- linkToList(object=out@list,FUN=as.vector)  ## TO work here to recreate a stack from a rasterList
 			
 				lnl <- length(l)
 		
 				lu <- linkToList(object=l,FUN=base::length)
 				
-			##	lu2 <- LinkToList2list(lu)
-				lu2 <- LinkToList2list(lu,clean=TRUE)
+				lu2 <- LinkToList2list(lu)
+			##	lu2 <- LinkToList2list(lu,clean=TRUE)
 			
 				
 				nl <- unlist(lu2)
-			
+				
+				
+	
 				
 			} else {
 				
@@ -99,15 +106,23 @@ setMethod("stack", signature(x='RasterList'),
 				
 			}
 			
-		
-			inz <- which(nl!=0 & nl!=1)
-			iz <-  which(nl==0 | nl==1)
+			cond_inz <- nl!=0 & nl!=1
+			if (all(cond_inz==FALSE)) cond_inz <- nl!=0
 			
+			cond_iz <- !cond_inz
+			inz <- which(cond_inz)
+		##	iz <-  which(nl==0 | nl==1)
+			iz <- which(cond_iz)
 			
+	
 			if (max(nl[inz],na.rm=FALSE)!=min(nl[inz],na.rm=FALSE)){
 			
 				if (length(out@name)<1) out@name <- "<NO_NAME>"
 				r <- range(nl[inz])
+			#	if (r[1]==-Inf) r[1] <- -9999
+			#	if (r[1]==+Inf) r[2] <- +9999
+				r <- as.integer(r)
+			
 				msg <- sprintf("RasterList-class Object %s cannot be coerced into a RasterStack-class object (%d %d)",out@name,r[1],r[2])
 				
 				stop(msg)
@@ -169,7 +184,7 @@ setMethod("stack", signature(x='RasterList'),
 							 
 							 starts <- uu@source$start
 							 ends <-  uu@source$end
-						     uuxxuu <<- uu
+					
 							 for (ii in 1:length(starts)) {
 								 
 								 cells <- starts[ii]:ends[ii]

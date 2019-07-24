@@ -13,6 +13,7 @@ NULL
 #' @param x a \code{\link{LinkToList-class}} object 
 #' @param i indices of the element to get 
 #' @param forceInMemory logical value. Deafault is \code{FALSE}. If it is \code{TRUE}, method return a \code{list} saved in memomey, otheriwise it can return a  \code{\link{LinkToList-class}} object
+#' @param clean logical value. Default value is \code{FALSE}. It is used in case \code{forceInMemory==TRUE} , if \code{clean==TRUE} external files containing output data are removed. See \code{\link{LinkToList2list}}.
 #' @param filename,nperfile arguments passed to \link{linkToList} if \code{forceInMemory==FALSE}. 
 #' 
 #' 

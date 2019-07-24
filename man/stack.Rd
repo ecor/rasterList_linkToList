@@ -6,12 +6,12 @@
 \alias{stack}
 \title{Creates a \code{\link{RasterStack-class}}  object from a \code{\link{RasterList-class}}}
 \usage{
-\S4method{stack}{RasterList}(x, ...)
+\S4method{stack}{RasterList}(x, filename = "default", ...)
 }
 \arguments{
 \item{x}{a \code{rasterList-class} object}
 
-\item{...}{further arguments for \code{\link{rasterList}}}
+\item{filename, ...}{further arguments for \code{\link{rasterList}}}
 }
 \description{
 The method transforms a \code{\link{RasterList-class}} into a \code{\link{RasterStack-class}} in case of the list elements are numeric vectors.

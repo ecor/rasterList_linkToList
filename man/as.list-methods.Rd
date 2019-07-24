@@ -12,9 +12,11 @@
 LinkToList2list(x, ..., clean = FALSE)
 }
 \arguments{
-\item{x}{a \link{LinkToList-class} object}
+\item{x}{a \code{\link{LinkToList-class}} object}
 
-\item{...}{forther arguments for \code{\link{[}} method}
+\item{...}{forther arguments for \code{\link{[}} method.}
+
+\item{clean}{logical value. Default is \code{FALSE}. If it is \code{TRUE}, the external files containing \code{x} are removed. See \code{\link{unlink}}.}
 }
 \description{
 Coercion of a \link{LinkToList-class} object to a generic \link{list} object.

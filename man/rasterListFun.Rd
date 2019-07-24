@@ -4,10 +4,12 @@
 \alias{rasterListFun}
 \title{Execution of the elements of a \code{RasterList}}
 \usage{
-rasterListFun(object)
+rasterListFun(object, ...)
 }
 \arguments{
 \item{object}{an object to be coerced to \code{\link{RasterList-class}}}
+
+\item{...}{further arguments for function contained in \code{object}}
 }
 \value{
 This function works with \code{RasterList-class}  objects in which all elements of \code{object@list} slot are functions. It returns a "global" function that works at "raster" scale. The returned function will have the following usage signature: \code{fun(xval,...)} where one \code{xval} (if its lengths is different from 1) element is the applied to each element and ... are further common arguments.

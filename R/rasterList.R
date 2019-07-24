@@ -311,7 +311,8 @@ setMethod("rasterList","RasterList",function (object,list=NULL,object.name=NA,FU
 		    if (filename!="")   {
 				
 				list_ <- object@list
-				object <- writeRaster(object[[1]],filename=filename,overwrite=overwrite)
+				objtmp <- as(object[[1]],Class="RasterLayer")				
+				object <- writeRaster(objtmp,filename=filename,overwrite=overwrite)
 				object <- as(object,Class="RasterList")
 				object@list <- list_
 			
@@ -366,7 +367,7 @@ setMethod("rasterList","RasterList",function (object,list=NULL,object.name=NA,FU
 				
 #				if (is.na(maxCellsperBlock))  maxCellsperBlock <- ncell(object)/100
 					
-				if (filename=="")filename <- filename(object[[1]])
+				if (filename=="") filename <- filename(object[[1]])
 				if (filename=="") filename <- "default"
 				object@list <- linkToList(object@list,filename=filename,FUN=FUN,nperfile=nperfile,...)
 		

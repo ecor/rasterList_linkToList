@@ -4,7 +4,7 @@ NULL
 #' This fuction transmors a generic  \code{\link{RasterList-class}} object into another \code{\link{RasterList-class}} object where elemets are all \code{function}-type. 
 #' 
 #' @param object  an object to be coerced to \code{\link{RasterList-class}} 
-#' 
+#' @param ... further arguments for function contained in \code{object} 
 #' 
 #' @return This function works with \code{RasterList-class}  objects in which all elements of \code{object@list} slot are functions. It returns a "global" function that works at "raster" scale. The returned function will have the following usage signature: \code{fun(xval,...)} where one \code{xval} (if its lengths is different from 1) element is the applied to each element and ... are further common arguments.  
 #' 
@@ -125,13 +125,13 @@ NULL
 #' }
 #' 
  
- rasterListFun <- function(object)  {
+ rasterListFun <- function(object,...)  {
  	
  	
- 	object <- rasterList(object)
+ ##CC 20190718	object <- rasterList(object)
 	
 	if (class(object@list)=="LinkToList") {
-		tmpvv <- linkToList(object=object@list,FUN=function(xv){class(xv)=="function"})
+		tmpvv <- linkToList(object=object@list,FUN=function(xv){class(xv)=="function"},...)
 		condfun <- all(unlist(LinkToList2list(tmpvv)))
 		
 	} else {
@@ -155,8 +155,8 @@ NULL
 	out <- function(xval,filename="temporary",...) {
 		
 		if (is.numeric(xval)) { 
-			
-			o <- rasterList(object,FUN=function(t,...,xval=xval){t(xval,...)},filename=filename,...,xval=xval)
+		
+			o <- rasterList(object,FUN=function(tt,...,xval=xval){tt(xval,...)},filename=filename,...,xval=xval)
 			
 			
 		} else {	

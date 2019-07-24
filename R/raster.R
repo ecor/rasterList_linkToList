@@ -6,7 +6,6 @@ NULL
 #' \code{Raster} methods for a \code{\link{RasterList-class}} object.
 #'
 #' @param x a valid \code{\link{RasterList-class}} object
-#' @param FUN if it not \code{NULL} a function is applied to all elements of the \code{list} slot in \code{x}. 
 #' @param ... further arguments 
 #' 
 #' @export 
@@ -31,37 +30,60 @@ NULL
 # 
 # 
 
+#
+#setMethod('raster', signature(x='RasterList'), 
+#		function(x,FUN=NULL,...) {
+#			
+#		
+#			x <- rasterList(object=x,FUN=FUN,...)
+#
+#			
+#			out <- as(x,"RasterLayer")
+#			
+#			scalarize_f <- function(x){
+#				
+#					o <- try(as.numeric(as.vector(x))[1],silent=TRUE)
+#					if (class(o)=="try-error") o <- 1*NA
+#					return(o)
+#			
+#					}
+#					
+#			if (class(x@list)=="LinkToList") {
+#				
+#				out[] <- unlist(LinkToList2list(linkToList(object=x@list,FUN=scalarize_f)))
+#				
+#				
+#			}		else {
+#				<<-
+#				
+#				out[] <- sapply(X=x@list,FUN=scalarize_f) 
+#			}
+#			
+#			
+#			return(out)
+#
+#		}
+#)
+# @param FUN if it not \code{NULL} a function is applied to all elements of the \code{list} slot in \code{x}. 
+
 
 setMethod('raster', signature(x='RasterList'), 
-		function(x,FUN=NULL,...) {
+		function(x,...) {
 			
+			
+			out <- try(stack(x,...),silent=TRUE)
 		
-			x <- rasterList(object=x,FUN=FUN,...)
-
-			
-			out <- as(x,"RasterLayer")
-			
-			scalarize_f <- function(x){
+			if (class(out)=="try-error") {
 				
-					o <- try(as.numeric(as.vector(x))[1],silent=TRUE)
-					if (class(o)=="try-error") o <- 1*NA
-					return(o)
-			
-					}
-					
-			if (class(x@list)=="LinkToList") {
+				out <- as(x,Class="RasterLayer")
 				
-				out[] <- unlist(LinkToList2list(linkToList(object=x@list,FUN=scalarize_f)))
+			}  else {
 				
-				
-			}		else {
-				
-				
-				out[] <- sapply(X=x@list,FUN=scalarize_f) 
+				out <- out[[1]]
 			}
-			
-			
 			return(out)
-
+			
 		}
 )
+
+
